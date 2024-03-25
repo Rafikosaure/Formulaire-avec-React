@@ -7,7 +7,7 @@ function App() {
   const [lastName, setLastName] = useState("")
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
-
+  
   const formObject = {
     firstName,
     lastName,
@@ -18,7 +18,6 @@ function App() {
   const dataStorage = () => {
     sessionStorage.clear()
     for (let item in formObject) {
-      // console.log(item, formObject[item])
       sessionStorage.setItem(item, formObject[item])
     }
   }
@@ -36,7 +35,6 @@ function App() {
             <input className='input-form' type="email" value={email} onChange={e => setEmail(e.target.value)} required />
             Message :
             <input className='input-form' type="text" value={message} onChange={e => setMessage(e.target.value)} required />
-              
           </label>
           <input className='btn-submit' type="submit" value="Envoyer" />
         </form>
