@@ -3,32 +3,28 @@ import './App.css';
 
 function App() {
 
-  const [count, setCount] = useState(0)
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
 
   const formObject = {
-    FirstName: firstName,
-    LastName: lastName,
-    Email: email,
-    Message: message
+    firstName,
+    lastName,
+    email,
+    message
   }
 
   const dataStorage = () => {
+    sessionStorage.clear()
     for (let item in formObject) {
+      // console.log(item, formObject[item])
       sessionStorage.setItem(item, formObject[item])
     }
   }
 
   return (
     <>
-      <div className="App">
-        <button onClick={() => setCount(count-1)}>-</button>
-        <div>{count}</div>
-        <button onClick={() => setCount(count+1)}>+</button>
-      </div>
       <div className='div-form'>
         <form onSubmit={dataStorage}>
           <label>
@@ -40,6 +36,7 @@ function App() {
             <input className='input-form' type="email" value={email} onChange={e => setEmail(e.target.value)} required />
             Message :
             <input className='input-form' type="text" value={message} onChange={e => setMessage(e.target.value)} required />
+              
           </label>
           <input className='btn-submit' type="submit" value="Envoyer" />
         </form>
