@@ -22,6 +22,7 @@ function App() {
     for (let item in formObject) {
       sessionStorage.setItem(item, formObject[item])
     }
+
     /* const newArray = [...contacts, formObject];
     setContacts(newArray)
     localStorage.setItem('contact', JSON.stringify(newArray))
